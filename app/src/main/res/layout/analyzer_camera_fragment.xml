@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.analyzer_camera.AnalyzerCameraFragment">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/pvCamera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:scaleType="fitCenter" />
+
+    <com.client.alko.common.mlvision.common.GraphicOverlay
+        android:id="@+id/graphicOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/pvCamera"
+        app:layout_constraintEnd_toEndOf="@id/pvCamera"
+        app:layout_constraintStart_toStartOf="@id/pvCamera"
+        app:layout_constraintTop_toTopOf="@id/pvCamera" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_transparent_50"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Info text" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cvControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@color/black_transparent_50"
+        android:padding="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivSwitchCamera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="24dp"
+            android:src="@drawable/ic_baseline_flip_camera_android_24"
+            app:layout_constraintBottom_toTopOf="@id/rg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <RadioButton
+                android:id="@+id/rbFace"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:gravity="top"
+                android:text="Face detection"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/rbPose"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:gravity="top"
+                android:text="Pose detection"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/rbFaceAndPose"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:gravity="top"
+                android:text="Face and pose detection"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+            <RadioButton
+                android:id="@+id/rbCustom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:gravity="top"
+                android:text="Custom: average luminosity"
+                android:textColor="@color/white" />
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

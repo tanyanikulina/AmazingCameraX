@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.amazingcameraxapp.presentation.start.StartFragment"
+        android:label="start_fragment"
+        tools:layout="@layout/start_fragment">
+
+        <action
+            android:id="@+id/actionSimpleCamera"
+            app:destination="@id/simpleCameraFragment" />
+
+        <action
+            android:id="@+id/actionAnalyzerCamera"
+            app:destination="@id/analyzerCameraFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/simpleCameraFragment"
+        android:name="com.example.amazingcameraxapp.presentation.simple_camera.SimpleCameraFragment"
+        android:label="simple_camera_fragment"
+        tools:layout="@layout/simple_camera_fragment" />
+
+    <fragment
+        android:id="@+id/analyzerCameraFragment"
+        android:name="com.example.amazingcameraxapp.presentation.analyzer_camera.AnalyzerCameraFragment"
+        android:label="analyzer_camera_fragment"
+        tools:layout="@layout/analyzer_camera_fragment" />
+
+</navigation>

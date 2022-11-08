@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.simple_camera.SimpleCameraFragment">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/pvCamera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:scaleType="fitCenter" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cvControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@color/black_transparent_50"
+        android:padding="12dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivExtension"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_baseline_blur_off_24"
+            app:layout_constraintBottom_toTopOf="@id/ivCapture"
+            app:layout_constraintEnd_toStartOf="@id/ivFormat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/ivFormat"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_baseline_crop_16_9_24"
+            app:layout_constraintBottom_toTopOf="@id/ivCapture"
+            app:layout_constraintEnd_toStartOf="@id/ivFlash"
+            app:layout_constraintStart_toEndOf="@id/ivExtension"
+            app:tint="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/ivFlash"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_baseline_flash_off_24"
+            app:layout_constraintBottom_toTopOf="@id/ivCapture"
+            app:layout_constraintEnd_toStartOf="@id/ivSwitchCamera"
+            app:layout_constraintStart_toEndOf="@id/ivFormat"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/ivSwitchCamera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_baseline_flip_camera_android_24"
+            app:layout_constraintBottom_toTopOf="@id/ivCapture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivFlash"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/ivCapture"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/ic_baseline_camera_24"
+            app:layout_constraintBottom_toTopOf="@id/tvPhoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/ivGallery"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/ic_baseline_image_24"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/tvPhoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvVideo"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvPhoto" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
